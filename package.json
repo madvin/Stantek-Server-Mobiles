@@ -10,12 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/madvin/stantek-server-mobiles.git"
   },
-  "keywords": [
-    "mobils"
-  ],
   "author": "LTS",
-  "type": "module",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madvin/stantek-server-mobiles/issues"
+  },
+  "homepage": "https://github.com/madvin/stantek-server-mobiles#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "type": "module",
   "dependencies": {
     "express": "^4.21.2",
     "express-handlebars": "^8.0.1",
