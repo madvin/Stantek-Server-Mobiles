@@ -12,4 +12,8 @@ const userSchema = new Schema({
     }
 
     //TODO: user connection to phones created
-})
+});
+
+const User = model('User', userSchema);
+
+export default User;
