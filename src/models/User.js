@@ -11,9 +11,11 @@ const userSchema = new Schema({
     password: {
         minLength: [6, 'Passowrd must be at least 6 characters!'],
         maxLength: [30, 'Passowrd must be less than 30 characters']
+    },
+    phonesCreated: {
+        type: Types.ObjectId,
+        ref: 'Mobile'
     }
-
-    //TODO: user connection to phones created
 });
 
 userSchema.pre('save', async function () {
