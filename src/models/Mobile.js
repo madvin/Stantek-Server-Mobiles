@@ -1,13 +1,16 @@
 import { Schema, model } from 'mongoose';
 
 const mobileSchema = new Schema({
-    IMEI:{
+    partNumber:{
         type: String,
-        required: [true, 'IMEI is required!'],
-        minLength: [5, 'IMEI should be at least 5 characters long!'],
-        maxLength: [20, 'IMEI should be less than 20 characters long!']
+        required: [true, 'Part Number is required!'],
+        minLength: [5, 'Part Number should be at least 5 characters long!'],
+        maxLength: [22, 'Part Number should be less than 20 characters long!']
+    },
+    creator: {
+        type: Types.ObjectId,
+        ref: 'User',
     }
-    //TODO: import date and user created
 });
 
 const Mobile = model('Mobile', mobileSchema);
