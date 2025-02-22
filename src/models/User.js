@@ -4,18 +4,17 @@ import bcrypt from 'bcrypt';
 
 const userSchema = new Schema({
     username: {
-        require: true,
+        type: String,
+        required: true,
         minLength: [4, 'Username must be at least 4 characters!'],
-        maxLength: [10, 'Username must be less than 10 characters']
+        maxLength: [10, 'Username must be less than 10 characters'],
     },
     password: {
+        type: String,
+        required: true,
         minLength: [6, 'Passowrd must be at least 6 characters!'],
-        maxLength: [30, 'Passowrd must be less than 30 characters']
+        maxLength: [30, 'Passowrd must be less than 30 characters'],
     },
-    phonesCreated: {
-        type: Types.ObjectId,
-        ref: 'Mobile'
-    }
 });
 
 userSchema.pre('save', async function () {

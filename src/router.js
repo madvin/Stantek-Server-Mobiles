@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import homeController from './coontrollers/homeController.js';
+import homeController from './controllers/homeController.js';
 import authController from './controllers/authController.js';
 
 const routes = Router();
