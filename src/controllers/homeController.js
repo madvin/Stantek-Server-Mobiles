@@ -6,5 +6,7 @@ const router = Router();
 router.get ('/', async (req, res) => {
     const mobiles = await mobileService.getAllMobiles();
 
-    res.render('homme', {mobiles});
+    res.render('home', { mobiles });
 });
+
+export default router;
