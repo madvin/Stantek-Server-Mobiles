@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 const mobileSchema = new Schema({
     partNumber:{
@@ -11,6 +11,10 @@ const mobileSchema = new Schema({
         type: String,
         required: true,
     },
+    creator: {
+        type: Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 const Mobile = model('Mobile', mobileSchema);
