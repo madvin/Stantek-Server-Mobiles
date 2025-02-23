@@ -1,8 +1,9 @@
 import User from '../models/User.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
-const SECRET = process.env.JWT_SECRET || 'somesecret';
+const SECRET = 'laskjdlsakjdlaskjdlkasdjska123123easdas';
 
 export default {
     async register(userData) {

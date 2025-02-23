@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import authService from '../services/authService.js';
 import { isAuth} from '../middlewares/authMiddleware.js';
-import { errorHandler } from '../utils/errorHandler.js';
+import { getErrorMessage } from '../utils/errorHandler.js';
 
 const authController = Router();
+const COOKIE = 'auth';
 
 authController.get('/register', (req, res) => {
     res.render('auth/register');
@@ -15,7 +16,7 @@ authController.post('/register', async (req, res) => {
     try {
         await authService.register(userData);
     } catch (err) {
-        const error = errorHandler(err);
+        const error = getErrorMessage(err);
         return res.render('auth/register', { error });
     }
 
@@ -32,11 +33,11 @@ authController.post('/login', async (req, res) => {
     try {
         const token = await authService.login(userData);
 
-        res.cookie('auth', token, { httpOnly: true });
+        res.cookie(COOKIE, token, { httpOnly: true });
         res.redirect('/');
 
     } catch (err) {
-        return res.render('auth/login', { error: errorHandler(err) });
+        return res.render('auth/login', { error: getErrorMessage(err) });
     }
 });
 
