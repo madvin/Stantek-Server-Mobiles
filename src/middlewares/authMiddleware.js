@@ -1,9 +1,11 @@
 import jwt from 'jsonwebtoken';
+import COOKIE from '../controllers/authController.js';
 
-const SECRET = process.env.JWT_SECRET || 'BASICSECRET';
+const SECRET = 'BASICSECRET';
+
 
 export const authMiddleware = (req, res, next) => {
-    const token = req.cookies['auth'];
+    const token = req.cookies['COOKIE'];
 
     if (!token) {
         return next();
@@ -17,9 +19,9 @@ export const authMiddleware = (req, res, next) => {
         
         next();
     } catch(err) {
-        // res.setError('Invalid Authentication!');
-        // res.clearCookie('auth');
-        // res.redirect('/auth/login');
+        res.setError('Invalid Authentication!');
+        res.clearCookie('COOKIE');
+        res.redirect('/auth/login');
     }
 };
 

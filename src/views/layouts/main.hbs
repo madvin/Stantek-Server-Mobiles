@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{#if pageTitle}}{{pageTitle}}{{else}}Mobiles{{/if}}</title>
-    <!-- Do not forget to change the path to the css file -->
     <link href="/static/css/style.css" type="text/css" rel="stylesheet">
 </head>
 
@@ -28,7 +27,7 @@
                 {{#if user}}
                 <li><a href="/mobiles/create">Create Mobile</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
-                <li>{{user.email}}</li>
+                <li>{{user.username}}</li>
                 {{else}}
                 {{!-- Guests --}}
                 <li><a href="/auth/login">Login</a></li>

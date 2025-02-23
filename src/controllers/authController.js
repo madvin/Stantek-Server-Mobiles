@@ -4,6 +4,7 @@ import { isAuth} from '../middlewares/authMiddleware.js';
 import { getErrorMessage } from '../utils/errorHandler.js';
 
 const authController = Router();
+export const COOKIE = 'auth';
 
 authController.get('/register', (req, res) => {
     res.render('auth/register');
