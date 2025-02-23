@@ -20,7 +20,7 @@ app.set('views', './src/views');
 
 //TODO: home route
 app.get('/', (req, res) => {
-    res.render('home', {layout: false});
+    res.render('home', { layout: 'main' });
 });
 
 app.use(authMiddleware);

@@ -1,8 +1,9 @@
 import jwt from 'jsonwebtoken';
 const SECRET = process.env.JWT_SECRET || 'somesecret';
+const COOKIE = 'auth';
 
 export const authMiddleware = (req, res, next) => {
-    const token = req.cookies['auth'];
+    const token = req.cookies(COOKIE);
 
     if (!token) {
         return next();
@@ -17,7 +18,7 @@ export const authMiddleware = (req, res, next) => {
         next();
     } catch (err) {
         res.setError('Invalid Authentication!');
-        res.clearCookie('auth');
+        res.clearCookie(COOKIE);
         res.redirect('/auth/login');
     }
 };

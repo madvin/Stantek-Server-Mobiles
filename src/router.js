@@ -6,7 +6,9 @@ import authController from './controllers/authController.js';
 const routes = Router();
 
 routes.use(homeController);
+routes.use('/mobiles', mobileController);
 routes.use('/auth', authController);
+
 
 routes.get('*', (req, res) => {
     res.render('404');
