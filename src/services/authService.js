@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 
-const SECRET = 'laskjdlsakjdlaskjdlkasdjska123123easdas';
+const SECRET = 'koFOFKogksdm3226jkpolmsdpgmOGSPOGMgsdlgsmdg';
 
 export default {
     async register(userData) {

@@ -4,21 +4,22 @@ import expressSession from 'express-session';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import homeController from './controllers/homeController.js';
-import 'dotenv/config';
 
-import routes from './router.js';
+
+import routes from './routes.js';
 import { authMiddleware } from './middlewares/authMiddleware.js';
 
 const app = express();
 
-const port = process.env.PORT || 3030;
-const URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/Stantek-mobiles';
+const port = 5000;
+
 
 try {
+    const URI = 'mongodb://localhost:27017/Stantek-mobiles';
     await mongoose.connect(URI);
     console.log('Database is connected!');
 } catch (err) {
-    console.log('Database connection error!');
+    console.log('Cannot connect to the DB!');
     console.error(err);
 }
 
@@ -38,7 +39,7 @@ app.use('/static', express.static('src/public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressSession({
-    secret: 'laskjdlsakjdlaskjdlkasdjska123123easdas',
+    secret: 'koFOFKogksdm3226jkpolmsdpgmOGSPOGMgsdlgsmdg',
     resave: false,
     saveUninitialized: false,
     cookie: {
